@@ -1,0 +1,32 @@
+.project-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e0e0e0;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.status-en_progreso { background: #fff3cd; color: #856404; }
+.status-pendiente { background: #d4edda; color: #155724; }
+.status-finalizado { background: #cce5ff; color: #004085; }
+
+.resources-count {
+  margin-top: 12px;
+  color: #666;
+  font-size: 0.95rem;
+}
