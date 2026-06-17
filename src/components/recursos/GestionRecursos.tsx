@@ -11,7 +11,7 @@ export default function GestionRecursos() {
 
   const cargarRecursos = async () => {
     try {
-      const data = await recursoService.obtainAll();
+      const data = await recursoService.obtenerTodos(); 
       setRecursos(data);
     } catch (err) {
       console.error('Error al cargar recursos', err);
