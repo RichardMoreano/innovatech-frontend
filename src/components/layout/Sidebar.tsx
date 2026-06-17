@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { LayoutDashboard, FolderCanvas, LogOut } from 'lucide-react';
+import { LayoutDashboard, FolderOpen, LogOut } from 'lucide-react';
 
 interface SidebarProps {
   userEmail: string;
@@ -30,7 +30,7 @@ export default function Sidebar({ userEmail, userRol }: SidebarProps) {
             <LayoutDashboard className="h-4 w-4" /> Dashboard
           </a>
           <a href="#" className="flex items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-zinc-400 hover:bg-zinc-800/50 hover:text-zinc-200 transition-all">
-            <FolderCanvas className="h-4 w-4" /> Proyectos
+            <FolderOpen className="h-4 w-4" /> Proyectos
           </a>
         </nav>
       </div>
