@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Users, UserPlus, Mail, Shield, Briefcase, Trash2, Loader2 } from 'lucide-react';
+import { Users, UserPlus, Trash2, Loader2 } from 'lucide-react';
 import { recursoService, Recurso } from '@/services/recursoService';
 
 export default function GestionRecursos() {
@@ -18,7 +18,9 @@ export default function GestionRecursos() {
     }
   };
 
-  useEffect(() => { cargarRecursos(); }, []);
+  useEffect(() => { 
+    cargarRecursos(); 
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,20 +53,18 @@ export default function GestionRecursos() {
         <h2 className="text-xl font-bold tracking-tight">Gestión de Capital Humano V2</h2>
       </div>
 
-      {/* Formulario de Alta */}
       <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4 sm:grid-cols-3 bg-zinc-900/40 p-4 rounded-lg border border-zinc-800">
         <input type="text" required placeholder="Nombre" value={form.nombre} onChange={e => setForm({...form, nombre: e.target.value})} className="rounded-lg border border-zinc-800 bg-zinc-950 p-2.5 text-sm text-zinc-100 focus:border-indigo-500 focus:outline-none" />
         <input type="text" required placeholder="Apellido" value={form.apellido} onChange={e => setForm({...form, apellido: e.target.value})} className="rounded-lg border border-zinc-800 bg-zinc-950 p-2.5 text-sm text-zinc-100 focus:border-indigo-500 focus:outline-none" />
         <input type="email" required placeholder="Email corporativo" value={form.email} onChange={e => setForm({...form, email: e.target.value})} className="rounded-lg border border-zinc-800 bg-zinc-950 p-2.5 text-sm text-zinc-100 focus:border-indigo-500 focus:outline-none" />
         <input type="text" required placeholder="Rol (ej. Senior Developer)" value={form.rol} onChange={e => setForm({...form, rol: e.target.value})} className="rounded-lg border border-zinc-800 bg-zinc-950 p-2.5 text-sm text-zinc-100 focus:border-indigo-500 focus:outline-none" />
-        <input type="number" required min="1" max="45" placeholder="Horas semanales" value={form.horasSemana} onChange={e => setForm({...form, horasSemana: parseInt(e.target.value) || 0})} className="rounded-lg border border-zinc-800 bg-zinc-950 p-2.5 text-sm text-zinc-100 focus:border-indigo-500 focus:outline-none" />
+        <input type="number" required min="0" max="45" placeholder="Horas semanales" value={form.horasSemana} onChange={e => setForm({...form, horasSemana: parseInt(e.target.value) || 0})} className="rounded-lg border border-zinc-800 bg-zinc-950 p-2.5 text-sm text-zinc-100 focus:border-indigo-500 focus:outline-none" />
         
         <button type="submit" disabled={isLoading} className="flex justify-center items-center gap-2 rounded-lg bg-indigo-600 px-4 text-sm font-semibold text-white hover:bg-indigo-500 transition-all disabled:opacity-50">
           {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <><UserPlus className="h-4 w-4" /> Registrar</>}
         </button>
       </form>
 
-      {/* Tabla de Datos */}
       <div className="rounded-lg border border-zinc-800 bg-zinc-950 overflow-hidden">
         <table className="w-full text-left border-collapse text-sm text-zinc-300">
           <thead className="bg-zinc-900/80 text-xs font-semibold text-zinc-400 uppercase border-b border-zinc-800">
